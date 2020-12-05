@@ -1,5 +1,5 @@
 package com.example.nodap.model
 
-class ResUsersData {
+class Summoner {
 
 }

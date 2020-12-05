@@ -1,6 +1,8 @@
 package com.example.nodap
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
@@ -10,7 +12,6 @@ import com.example.nodap.base.BaseActivity
 import com.example.nodap.databinding.ActivityMainBinding
 import com.example.nodap.viewModel.MainViewModel
 import com.jakewharton.rxbinding3.view.clicks
-import java.util.concurrent.TimeUnit
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
@@ -22,17 +23,32 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
         binding.apply{
             viewModel = this@MainActivity.mViewModel
+            lifecycleOwner = this@MainActivity
             this.setVariable(BR.viewModel,mViewModel)
             this.executePendingBindings()
         }
         processClickEvent(findViewById(R.id.tv_test))
+        processClickEvent(findViewById(R.id.imageView))
+
+        mViewModel.initSettingSummonerName(null)
+        Log.e("Test",mViewModel.summonerName.value)
     }
 
 
+    @SuppressLint("CheckResult")
     private fun processClickEvent(view : View){
         val observable =view.clicks()
-        observable.debounce(500, TimeUnit.MILLISECONDS).subscribe {
-            Toast.makeText(this,"Hi",Toast.LENGTH_LONG).show()
+        observable/*.debounce(500, TimeUnit.MILLISECONDS)*/.subscribe {
+
+            when(view.id){
+                R.id.tv_test->{
+                    Toast.makeText(this,mViewModel.summonerName.value,Toast.LENGTH_LONG).show()
+                }
+                R.id.imageView->{
+                    mViewModel.requestGetSummonersByName(mViewModel.summonerName.value)
+                }
+            }
+
         }
     }
 
