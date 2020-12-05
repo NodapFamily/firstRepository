@@ -1,25 +1,16 @@
 package com.example.nodap
 
 import android.os.Bundle
-import android.view.Menu
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.nodap.base.BaseActivity
 import com.example.nodap.databinding.ActivityMainBinding
 import com.example.nodap.viewModel.MainViewModel
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import com.jakewharton.rxbinding3.view.clicks
+import java.util.concurrent.TimeUnit
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
@@ -34,14 +25,15 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             this.setVariable(BR.viewModel,mViewModel)
             this.executePendingBindings()
         }
+        processClickEvent(findViewById(R.id.tv_test))
     }
 
 
     private fun processClickEvent(view : View){
         val observable =view.clicks()
-        observable.subscribe {
+        observable.debounce(500, TimeUnit.MILLISECONDS).subscribe {
             Toast.makeText(this,"Hi",Toast.LENGTH_LONG).show()
-        }.dispose()
+        }
     }
 
     override fun initViewModel(): ViewModel {
