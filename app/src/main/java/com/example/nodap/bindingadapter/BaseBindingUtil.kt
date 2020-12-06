@@ -3,21 +3,23 @@ package com.example.nodap.bindingadapter
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.nodap.model.ResMatch
 
 class BaseBindingUtil {
-    @BindingAdapter(value = ["app:calendarSettingItems", "app:calendarSettingClick"])
-    fun bindCalendarSetting(rv: RecyclerView, items: ArrayList<String>?, iRecyclerViewItemClick:  IRecyclerViewItemClick<String, BaseElementClickType>?) {
+
+    @BindingAdapter(value = ["app:matchs", "app:matchsClick"])
+    fun bindMatchItem(rv: RecyclerView, items: ArrayList<ResMatch>?, iRecyclerViewItemClick:  IRecyclerViewItemClick<ResMatch, BaseElementClickType>?) {
         if (items == null) return
-        var adapter = rv.adapter as TempAdapter?
+        var adapter = rv.adapter as MatchAdapter?
         if (adapter == null) {
-            adapter = TempAdapter(arrayListOf(), iRecyclerViewItemClick)
+            adapter = MatchAdapter(items, iRecyclerViewItemClick)
             rv.layoutManager = LinearLayoutManager(rv.context)
             rv.setHasFixedSize(true)
             rv.adapter = adapter
-            adapter.setClick(iRecyclerViewItemClick)
-            adapter.notifyDataSetChanged()
-        } else {
-            adapter.setClick(iRecyclerViewItemClick)
+        }else{
+            adapter.items.clear()
+            adapter.items.addAll(items)
         }
+        adapter.notifyDataSetChanged()
     }
 }

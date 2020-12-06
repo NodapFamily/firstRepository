@@ -13,13 +13,13 @@ class ResSummonerData {
 
     override fun toString(): String {
         return """
-                id            = ${id} : String
-                accountId     = ${accountId} : String
-                puuid         = ${puuid} : String
-                name          = ${name} : String
-                profileIconId = ${profileIconId} : Long
-                revisionDate  = ${revisionDate} : Long
-                summonerLevel = ${summonerLevel} : Int
+                id            = ${id}
+                accountId     = ${accountId}
+                puuid         = ${puuid}
+                name          = ${name}
+                profileIconId = ${profileIconId}
+                revisionDate  = ${revisionDate}
+                summonerLevel = ${summonerLevel}
         """.trimIndent()
     }
 }

@@ -24,7 +24,8 @@ object HttpClient {
             val request: Request =
                 chain.request().newBuilder().addHeader(
                     "X-Riot-Token",
-                    "RGAPI-d7048923-3875-4262-8d0c-8f25404d3c61"
+//                    "RGAPI-d7048923-3875-4262-8d0c-8f25404d3c61"
+                "RGAPI-a6c0bb94-9c25-42c5-ae35-5e10b6825f8d"
                 ).build()
             chain.proceed(request)
         }

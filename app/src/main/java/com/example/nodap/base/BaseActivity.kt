@@ -1,6 +1,7 @@
 package com.example.nodap.base
 
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -23,4 +24,6 @@ public abstract class BaseActivity<T : ViewDataBinding, V : ViewModel> : AppComp
         }
 
     abstract fun initViewModel(): ViewModel
+
+    open fun processClickEvent(view : View){}
 }
