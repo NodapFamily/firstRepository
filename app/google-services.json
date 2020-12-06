@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "437915909681",
+    "project_id": "nodap-22d42",
+    "storage_bucket": "nodap-22d42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437915909681:android:f733ce5bb5702a4d449f10",
+        "android_client_info": {
+          "package_name": "com.example.nodap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437915909681-mokefvok0jgt3mtn6kg22c51ebhnnj5b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nodap",
+            "certificate_hash": "a9c488f9dac071f11335d14027c84a54060dffe9"
+          }
+        },
+        {
+          "client_id": "437915909681-4lsudh9c962i76kpil5ob2vap1cj08a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1fJU0ckzCYeHbOXAanzc0uOPm64v0u74"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437915909681-4lsudh9c962i76kpil5ob2vap1cj08a0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
