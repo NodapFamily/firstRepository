@@ -4,10 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-<<<<<<< HEAD
-=======
-import android.widget.Toast
->>>>>>> dc36e03a0de7ce1f8a534c42fa8cf2acc4b6ab2b
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
